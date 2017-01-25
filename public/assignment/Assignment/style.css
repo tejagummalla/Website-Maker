@@ -1,3 +1,28 @@
 .aligned {
    text-align: justify ;
 }
+
+body{
+   padding-top: 70px;
+   padding-bottom: 50px;
+}
+
+table td{
+   border-top: none !important;
+}
+
+table body{
+   height: 100%;
+}
+
+glyphicon-plus {
+    color: white;
+}
+
+glyphicon-left{
+    color: white;
+}
+
+glyphicon-user{
+    color: white;
+}
