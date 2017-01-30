@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Edit</title>
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid  bg-primary" >
+            <div class="navbar-header" style="width: 100%;">
+                <p class="navbar-text pull-left">
+                    <a href="widget-list.html" >
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+
+                </p>
+
+                <a class="navbar-brand">
+                    WIDGET EDIT
+                </a>
+
+                <p class="navbar-text pull-right">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </p>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid ">
+        <form>
+            <label for="head_name">Name</label>
+            <input type="text" class="form-control" id="head_name" placeholder="Gizmodo">
+            <label for="head_text">Text</label>
+            <input type="text" id="head_text" class="form-control" value="Wayne Rooney completes 250 goals for Manchester United">
+
+            <label for="head_size">Text</label>
+            <input type="text" id="head_size" class="form-control" value="3">
+
+            <button class="btn btn-danger btn-block">Delete</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -5,24 +5,48 @@
 body{
    padding-top: 70px;
    padding-bottom: 50px;
+   background-color: lavender;
 }
 
 table td{
    border-top: none !important;
 }
-
+.pad{
+    margin-bottom: 5px;
+}
+.wraptocenter {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 2000px;
+    height: 200px;
+    background-color: lavender;
+}
+.wraptocenter * {
+    vertical-align: middle;
+}
 table body{
    height: 100%;
 }
 
-glyphicon-plus {
+.glyphicon-plus {
     color: white;
 }
 
-glyphicon-left{
+.navbar-default .navbar-brand{
     color: white;
 }
-
-glyphicon-user{
+.glyphicon-chevron-left{
     color: white;
+    padding-left: 5px;
+}
+
+.glyphicon-user{
+    color: white;
+}
+.glyphicon-ok{
+    color: white;;
+}
+.bg-primary{
+    text-color: white;
 }

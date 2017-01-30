@@ -7,11 +7,12 @@
     <title>Profile</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar navbar-dedault navbar-fixed-top ">
-        <div class="container-fluid col-xs" style="background-color: darkturquoise">
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="container-fluid col-xs bg-primary">
             <div class="navbar-header" style="width: 100%">
                 <a class="navbar-brand" href="#">
                     PROFILE
@@ -26,7 +27,7 @@
         </div>
     </nav>
 
-    <div class="container" style="margin-top: 90px">
+    <div class="container">
 
         <form>
 
@@ -52,12 +53,15 @@
 
         </form>
 
-        <button class="btn btn-primary btn-block">Website</button>
+        <button class="btn btn-primary btn-block"
+                onclick="window.location.href='website-list.html'">
+            Website
+        </button>
         <button class="btn btn-danger btn-block">Logout</button>
     </div>
 
     <nav class="navbar navbar-dedault navbar-fixed-bottom">
-        <div class="container-fluid col-xs" style="background-color: darkturquoise">
+        <div class="container-fluid col-xs bg-primary">
             <div class="navbar-header" style="width: 100%">
                <p class="navbar-text pull-right" style="padding-right: 5px">
                     <span class="glyphicon glyphicon-user"></span>
