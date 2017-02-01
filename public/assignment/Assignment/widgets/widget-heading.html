@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Widget Edit</title>
-    <link href="style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -14,18 +16,20 @@
         <div class="container-fluid  bg-primary" >
             <div class="navbar-header" style="width: 100%;">
                 <p class="navbar-text pull-left">
-                    <a href="widget-list.html" >
+                    <a href="../widget-list.html" >
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
 
                 </p>
 
-                <a class="navbar-brand">
-                    WIDGET EDIT
+                <a class="navbar-brand" href="#">
+                    <b>WIDGET EDIT</b>
                 </a>
 
                 <p class="navbar-text pull-right">
-                    <span class="glyphicon glyphicon-ok"></span>
+                    <a href="../widget-list.html">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
                 </p>
             </div>
         </div>
@@ -40,10 +44,24 @@
 
             <label for="head_size">Text</label>
             <input type="text" id="head_size" class="form-control" value="3">
-
-            <button class="btn btn-danger btn-block">Delete</button>
+            <br>
         </form>
+        <button class="btn btn-danger btn-block"
+        onclick="window.location.href='../widget-list.html'">Delete</button>
+
     </div>
 
+    <nav class="navbar navbar-default navbar-fixed-bottom ">
+        <div class="container-fluid bg-primary"  style="width: 100%">
+            <div class="navbar-header" style="width: 100%">
+                <p class="navbar-text pull-right" >
+                    <a href="../profile.html"> <span class="glyphicon glyphicon-user"></span></a>
+
+                </p>
+
+
+            </div>
+        </div>
+    </nav>
 </body>
 </html>

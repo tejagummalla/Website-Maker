@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=none">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Profile</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -19,8 +19,10 @@
                 </a>
 
 
-              <p class="navbar-text pull-right" style="padding-right: 5px">
-                  <span class="glyphicon glyphicon-ok"></span>
+              <p class="navbar-text pull-right">
+                  <a href="profile.html">
+                      <span class="glyphicon glyphicon-ok"></span>
+                  </a>
 
               </p>
             </div>
@@ -54,16 +56,17 @@
         </form>
 
         <button class="btn btn-primary btn-block"
-                onclick="window.location.href='website-list.html'">
+                onclick="window.location.href='websites/website-list.html'">
             Website
         </button>
-        <button class="btn btn-danger btn-block">Logout</button>
+        <button class="btn btn-danger btn-block"
+        onclick="window.location.href='login.html'">Logout</button>
     </div>
 
     <nav class="navbar navbar-dedault navbar-fixed-bottom">
         <div class="container-fluid col-xs bg-primary">
             <div class="navbar-header" style="width: 100%">
-               <p class="navbar-text pull-right" style="padding-right: 5px">
+               <p class="navbar-text pull-right">
                     <span class="glyphicon glyphicon-user"></span>
 
                 </p>

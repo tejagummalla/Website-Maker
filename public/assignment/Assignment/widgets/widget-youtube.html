@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Edit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid bg-primary"  style="width: 100%">
+        <div class="navbar-header" style="width: 100%">
+            <p class="navbar-text pull-left" >
+                <a href="../widget-list.html">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+
+            </p>
+
+            <a class="navbar-brand" href="#">
+                <b>Widget Edit</b>
+            </a>
+
+
+            <p class="navbar-text pull-right" style="margin-right: 5px">
+                <a href="../widget-list.html"><span class="glyphicon glyphicon-ok"></span></a>
+
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid ">
+    <form>
+        <div class="form-group">
+            <label for="y_name">Name</label>
+            <input type="text" class="form-control" id="y_name">
+        </div>
+
+        <div class="form-group">
+            <label for="y_text">Text</label>
+            <input type="text" id="y_text" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="y_url">URL</label>
+            <input type="text" id="y_url" class="form-control"
+                   value="http://apps.bostonglobe.com/sports/graphics/2017/01/tom-brady-superfreak/assets/img/brady_old.png">
+        </div>
+
+        <div class="form-group">
+            <label for="y_width">Width</label>
+            <input type="text" id="y_width" class="form-control" value="100%">
+        </div>
+        <br>
+    </form>
+
+    <button class="btn btn-danger btn-block" onclick="window.location.href='../widget-list.html'">Delete</button>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom ">
+    <div class="container-fluid bg-primary"  style="width: 100%">
+        <div class="navbar-header" style="width: 100%">
+
+                <a href="../profile.html">
+                    <p class="navbar-text pull-right" ><span class="glyphicon glyphicon-user"></span>
+                    </p>
+                </a>
+
+        </div>
+    </div>
+</nav>
+
+
+</body>
+</html>
