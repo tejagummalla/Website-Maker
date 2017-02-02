@@ -1,0 +1,86 @@
+
+
+input.form-control {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: 60px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+.navbar-head{
+    color: white;
+}
+
+
+
+.list-group-item{
+    background-color: inherit;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    padding-right: 15px;
+}
+
+.pull-right{
+    padding-right: 15px;
+}
+
+
+a:hover{
+    text-decoration: none;
+}
+
+.navbar-brand{
+    padding: 15px;
+}
+
+.list-group-item {
+border: hidden}
+
+.btn-block{
+    margin-top: 10px;
+}
+
+label{
+    margin-top: 10px;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: inherit;
+    background-color: transparent;
+}
+
+.wbdv-left-pane {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 15px;
+    overflow: auto;
+}
+.wbdv-right-pane {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow-y: auto;
+}
+
+
+.glyphicon{
+    color: white;
+}
+
+.list-group .glyphicon{
+    color: darkblue;
+}
