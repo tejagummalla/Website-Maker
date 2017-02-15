@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
     <meta charset="UTF-8">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <script src="views/user/controllers/login.controller.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.js"></script>
+    <script src="views/websites/controllers/website-list.controller.client.js"></script>
+    <script src="views/websites/controllers/website-new.controller.client.js"></script>
+    <script src="views/websites/controllers/website-edit.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget-edit.controller.client.js"></script>
+    <script src="views/widgets/controllers/widget-new.controller.client.js"></script>
+    <script src="views/pages/controllers/page.controller.client.js"></script>
+    <script src="views/pages/controllers/page-edit.controller.client.js"></script>
+    <script src="views/pages/controllers/page-new.controller.client.js"></script>
+
+    <script src="views/user/user.service.client.js"></script>
+    <script src="views/websites/controllers/website.service.client.js"></script>
+    <script src="views/pages/page.service.client.js"></script>
+    <script src="views/widgets/widget.service.client.js"></script>
     <title>Title</title>
 </head>
 <body>
+    <div ng-view>
 
+    </div>
 </body>
 </html>

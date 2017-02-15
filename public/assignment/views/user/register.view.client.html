@@ -1,0 +1,58 @@
+
+
+    <div class="container" >
+        <div ng-show="Model.error" class="alert alert-danger" role="alert">
+            {{Model.error}}
+        </div>
+
+        <h3>Register</h3>
+        <div class="form-group">
+            <label for="r_name">Username</label>
+            <input type="text" class="form-control" id="r_name"
+                   ng-model="user.username" placeholder="username">
+        </div>
+
+        <div class="form-group">
+            <label for="r_fname">First Name</label>
+            <input type="text" class="form-control" id="r_fname"
+                   ng-model="user.fname" placeholder="First Name">
+        </div>
+
+        <div class="form-group">
+            <label for="r_lname">Last Name</label>
+            <input type="text" class="form-control" id="r_lname"
+                   ng-model="user.lname" placeholder="Last Name">
+        </div>
+
+        <div class="form-group">
+            <label for="r_password">Enter Password</label>
+            <input type="password" class="form-control" id="r_password"
+                   ng-model="user.password" placeholder="password">
+        </div>
+
+        <div class="form-group">
+            <label for="r_cpassword">Re-Enter Password</label>
+            <input type="password" class="form-control" id="r_cpassword"
+                   ng-model="user.cpassword" placeholder="verify password">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="r_email">Email</label>
+            <input type="email" class="form-control" ng-model="user.email" id="r_email"
+            placeholder="tjgummalla@gmail.com">
+        </div>
+
+
+        <button class="btn-primary btn btn-block"
+        ng-click="Model.createUser(user)">Register</button>
+
+        <button class="btn-danger btn btn-block"
+        onclick="window.location.href='#login'">Cancel</button>
+
+
+
+
+
+    </div>

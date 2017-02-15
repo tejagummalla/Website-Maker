@@ -1,0 +1,35 @@
+
+h3{
+    border: 2px solid grey;
+    padding: 2px;
+}
+
+.ext{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+.left{
+    background-color: #007fff;
+    bottom: 0px;
+    position: absolute;
+    top: 0px;
+    left:0px;
+}
+
+.right{
+    background-color: beige;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+
+.row{
+    height: 100%;
+    position: relative;
+}

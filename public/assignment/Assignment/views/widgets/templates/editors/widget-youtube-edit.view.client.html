@@ -1,0 +1,29 @@
+<form>
+    <div class="form-group">
+        <label for="y_name">Name</label>
+        <input type="text" class="form-control" id="y_name"
+               ng-model="Model.widget.name">
+    </div>
+
+    <div class="form-group">
+        <label for="y_text">Text</label>
+        <input type="text" id="y_text" class="form-control"
+               ng-model="Model.widget.text">
+    </div>
+
+    <div class="form-group">
+        <label for="y_url">URL</label>
+        <input type="text" id="y_url" class="form-control"
+               ng-model="Model.widget.url">
+    </div>
+
+    <div class="form-group">
+        <label for="y_width">Width</label>
+        <input type="text" id="y_width" class="form-control" ng-model="Model.widget.width">
+    </div>
+</form>
+<a class="btn btn-block btn-success topp"
+   ng-click="Model.widgetUpdate()">Update</a>
+
+<a class="btn btn-block btn-danger topp"
+   ng-click="Model.widgetDelete()">Delete</a>

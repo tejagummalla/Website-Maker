@@ -1,0 +1,68 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid bg-primary">
+        <div class="navbar-text pull-left">
+            <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page/{{Model.pageId}}/widget/new">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Widget List</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-repeat="widget in Model.widgets">
+        <div class="jga-toolbar">
+            <a href="#/user/{{Model.userId}}/website/{{Model.websiteId}}/page/{{Model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADER" class="ng-scope">
+                <ng-include src="'views/widgets/templates/widget-heading.view.client.html'"></ng-include>
+            </div>
+
+            <div ng-switch-when="IMAGE" class="ng-scope">
+                <ng-include src="'views/widgets/templates/widget-image.view.client.html'"></ng-include>
+            </div>
+
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'views/widgets/templates/widget-youtube.view.client.html'"></ng-include>
+            </div>
+
+            <div ng-switch-when="HTML" ng-bind-html="Model.getTrustedHtml(widget.text)">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid bg-primary">
+        <div class="navbar-text pull-right">
+            <a href="#user/{{Model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+
+        </div>
+        <div class="navbar-text pull-left">
+            <a >
+                <span class="glyphicon glyphicon-play"></span>
+            </a>
+            <a >
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,18 @@
+<div class="container">
+    <form>
+        <label for="head_name">Name</label>
+        <input type="text" class="form-control" id="head_name" ng-model="Model.widget.name">
+        <label for="head_text">Text</label>
+        <input type="text" id="head_text" class="form-control"
+               ng-model="Model.widget.text">
+
+        <label for="head_size">Size</label>
+        <input type="text" id="head_size" class="form-control" ng-model="Model.widget.size">
+    </form>
+    <a class="btn btn-danger btn-block topp"
+       ng-click="Model.widgetDelete()">Delete</a>
+
+    <a class="btn btn-success btn-block topp"
+       ng-click="Model.widgetUpdate()">Update</a>
+
+</div>

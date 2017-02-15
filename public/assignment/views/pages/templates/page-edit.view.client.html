@@ -1,0 +1,90 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid bg-primary">
+        <div class="col-sm-4 hidden-xs">
+            <p class="navbar-text pull-left" >
+                <a href="../views/websites/website-list.view.client.html"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+            </p>
+            <a class="navbar-brand" href="#">
+                PAGES
+            </a>
+            <p class="navbar-text pull-right" >
+                <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page/new"><span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-8">
+            <p class="navbar-text pull-left visible-xs" >
+                <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+
+            </p>
+            <a class="navbar-brand" href="#">
+                Edit Page
+            </a>
+
+            <p class="navbar-text pull-right" >
+                <a ng-click="Model.updatePage()""><span class="glyphicon glyphicon-ok"></span></a>
+
+            </p>
+
+
+        </div>
+    </div>
+</nav>
+
+<div class="row container-fluid">
+    <div class="col-sm-4 hidden-xs wbdv-left-pane">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="page in Model.pages">
+                <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page/{{page._id}}/widget">
+                    {{page.name}}
+                </a>
+                <a href="#user/{{Model.userId}}/website/{{Model.websiteId}}/page/{{page._id}}" class="pull-right">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 wbdv-right-pane">
+
+        <div class="container-fluid" >
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" id="name"
+                           ng-model="Model.page.name" placeholder="Page Name" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input class="form-control" id="title"
+                           ng-model="Model.page.description" placeholder="Page Title" type="text">
+
+                </div>
+            </form>
+            <div class="topp">
+                <button class="btn-block btn btn-success"
+                        ng-click="Model.updatePage()">Update</button>
+            </div>
+
+            <div class="topp">
+                <button class="btn-block btn btn-danger"
+                        ng-click="Model.deletePage()">Delete</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid">
+        <a href="#user/{{Model.userId}}" class="navbar-link">
+            <span class="glyphicon glyphicon-user pull-right navbar-brand"></span>
+        </a>
+    </div>
+</nav>
+

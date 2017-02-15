@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trying jQuery</title>
+
+    <link href="jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+    <script src="jquery-ui-1.12.1.custom/jquery-3.1.1.min.js"></script>
+    <script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
+    <script>
+        $(init)
+        var p1s=true;
+        var p2s=true;
+        function init() {
+            $("h1").html("Well You Did Work!")
+            $("#to").html("Go Go Go!!!")
+
+            var ul=$("<ul>")
+
+            for(var i=0; i<10;i++){
+                var li=$("<li>");
+                li.append("Line Item "+i);
+                ul.append(li);
+            }
+            $("body").append(ul)
+
+            $("p").css("color","green")
+
+            $("#to").css({
+                "color":"green",
+                    "background-color":"yellow"
+            })
+
+            $("#hto").click(p2Clicked)
+            $("#for").click(p2Clicked)
+            $("#add").click(addit)
+
+        }
+
+        function addit() {
+            var sum=$("#a").val() + $("#b").val()
+            $("#c").val(sum)
+        }
+
+        function p2Clicked() {
+            if (p1s) {
+
+                $("#for").hide()
+            }
+            else {
+                $("#for").show()
+            }
+            p1s=!p1s
+
+        }
+        function p1Clicked() {
+            $("#to").show()
+        }
+    </script>
+</head>
+<body>
+    <h1>Common Work</h1>
+
+    <h3 id="hto">Click me to hide me!</h3>
+    <p id="to">Well Well Well!!!</p>
+    <p id="for">Ok click me!</p>
+
+    <input id="a">
+    <input id="b">
+    <button id="add">Add</button>
+    <input id="c">
+</body>
+</html>
