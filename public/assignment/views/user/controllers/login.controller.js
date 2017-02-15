@@ -12,13 +12,25 @@
             vm.userId=$routeParams.uid;
 
             function login(user) {
-                var use = LoginService.findByCredential(user.username ,user.password);
-                if (use != null){
-                    $location.url("/user/"+use._id)
+                if (user.username == null && user.password==null){
+                    vm.error="Please Enter Username and Password!"
+                }
+                else if (user.username== null){
+                    vm.error="Please Enter a Username"
+                }
+                else if(user.password==null){
+                    vm.error="Please Enter a Password"
                 }
                 else {
-                    vm.error= "user not found!"
+                    var use = LoginService.findByCredential(user.username ,user.password);
+                     if (use != null){
+                        $location.url("/user/"+use._id)
+                    }
+                    else {
+                        vm.error= "user not found!"
+                    }
                 }
+
             }
 
 
