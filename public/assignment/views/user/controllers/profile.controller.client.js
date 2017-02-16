@@ -17,6 +17,9 @@
 
         function updateUser() {
             LoginService.updateUser(vm.user);
+            vm.succ="Update Successful!!"
+            console.log(vm.succ)
+
         }
     }
 })();

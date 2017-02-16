@@ -8,7 +8,7 @@
 
 
               <p class="navbar-text pull-right">
-                  <a href="#/user/{{ProfileModel.user._id}}">
+                  <a href="ProfileModel.updateUser()">
                       <span class="glyphicon glyphicon-ok"></span>
                   </a>
 
@@ -18,7 +18,9 @@
     </nav>
 
     <div class="container">
-
+        <div ng-show="ProfileModel.succ" class="alert alert-success" role="alert">
+            {{ProfileModel.succ}}
+        </div>
         <form>
 
             <div class="form-group">
