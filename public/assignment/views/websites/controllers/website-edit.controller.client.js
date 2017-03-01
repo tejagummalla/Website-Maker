@@ -12,20 +12,37 @@
 
 
             function init() {
-                vm.websites = WebsiteService.findWebsiteByUser(vm.userId);
-                vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+                WebsiteService
+                    .findWebsiteByUser(vm.userId)
+                    .success(function (web) {
+                        vm.websites=web
+                    })
+                WebsiteService
+                    .findWebsiteById(vm.userId,vm.websiteId)
+                    .success(function (website) {
+                        vm.website=website;
+                    })
 
             }
             init();
 
             function deleteWebsite () {
-                WebsiteService.deleteWebsite(vm.websiteId);
-                $location.url("/user/"+vm.userId+"/website");
+                WebsiteService
+                    .deleteWebsite(vm.userId,vm.websiteId)
+                    .success(function (wId) {
+                        vm.message="Successfully deleted Website"+wId;
+                        $location.url("/user/"+vm.userId+"/website");
+
+                    })
+
             };
 
             function updateWebsite() {
-                WebsiteService.updateWebsite(vm.websiteId,vm.website)
-                $location.url("/user/"+vm.userId+"/website");
-            }
+                WebsiteService
+                    .updateWebsite(vm.websiteId,vm.website,vm.userId)
+                    .success(function () {
+                        $location.url("/user/"+vm.userId+"/website");
+                    })
+            };
         }
 })();

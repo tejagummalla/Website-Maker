@@ -19,8 +19,11 @@
         init();
 
         function createPage(page) {
-            PageService.createPage(vm.websiteId,page);
-            $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+            PageService
+                .createPage(vm.websiteId,page)
+                .success(function () {
+                    $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+            })
         }
     }
 })();

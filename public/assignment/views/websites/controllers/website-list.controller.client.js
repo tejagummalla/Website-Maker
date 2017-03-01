@@ -10,8 +10,11 @@
 
         var vm=this;
         vm.userId=$routeParams.uid
-        vm.websites=WebsiteService.findWebsiteByUser(vm.userId)
-
+        WebsiteService
+            .findWebsiteByUser(vm.userId)
+            .success(function (web) {
+                vm.websites=web
+            })
         }
 } 
     

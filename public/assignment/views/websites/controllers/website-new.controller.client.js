@@ -1,6 +1,4 @@
-/**
- * Created by tejag on 2/10/2017.
- */
+
 (function () {
     angular
         .module("WebAppMaker")
@@ -10,11 +8,19 @@
         var vm=this;
         vm.userId=$routeParams.uid;
         vm.createWebsite=createWebsite;
-        vm.websites=WebsiteService.findWebsiteByUser(vm.userId);
+        WebsiteService
+            .findWebsiteByUser(vm.userId)
+            .success(function (web) {
+                vm.websites=web
+            });
 
         function createWebsite(website) {
-            WebsiteService.createWebsite(vm.userId,website)
-            $location.url("/user/"+vm.userId+"/website");
+
+            WebsiteService
+                .createWebsite(vm.userId,website)
+                .success(function () {
+                    $location.url("/user/"+vm.userId+"/website");
+                })
 
         }
 

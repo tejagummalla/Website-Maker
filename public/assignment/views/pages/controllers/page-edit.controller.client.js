@@ -14,20 +14,34 @@
             vm.deletePage=deletePage;
             vm.updatePage=updatePage;
             function init(){
-                vm.pages=PageService.findPageByWebsiteId(vm.websiteId);
-                vm.page=PageService.findPageById(vm.pageId)
+                PageService
+                    .findPageByWebsiteId(vm.websiteId)
+                    .success(function (pages) {
+                        vm.pages = pages;
+                    });
+                PageService
+                    .findPageById(vm.pageId)
+                    .success(function (page) {
+                        vm.page=page;
+                    })
             }
 
             init();
 
             function deletePage() {
-                PageService.deletePage(vm.pageId)
-                $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                PageService
+                    .deletePage(vm.pageId)
+                    .success(function () {
+                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                    })
             }
             
             function updatePage() {
-                PageService.updatePage(vm.pageId,vm.page)
-                $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                PageService
+                    .updatePage(vm.pageId,vm.page)
+                    .success(function () {
+                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                    })
             }
         }
 })();

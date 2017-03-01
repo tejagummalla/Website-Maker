@@ -6,19 +6,33 @@
     function profileController($routeParams,LoginService,$location) {
         var vm=this;
         vm.userId= $routeParams['uid'];
-        vm.user= LoginService.findById(vm.userId);
+        var promise= LoginService.findById(vm.userId);
+        promise.success(function (user) {
+            vm.user=user
+        })
         vm.deleteUser=deleteUser;
         vm.updateUser=updateUser;
 
         function deleteUser() {
-            LoginService.deleteUser(vm.userId);
-            $location.url("/login")
+            var answer= confirm("Are you sure?");
+            if(answer){
+                LoginService
+                    .deleteUser(vm.userId)
+                    .success(function () {
+                        $location.url("/login")
+                })
+            }
+
         }
 
         function updateUser() {
-            LoginService.updateUser(vm.user);
-            vm.succ="Update Successful!!"
-            console.log(vm.succ)
+            LoginService
+                .updateUser(vm.userId,vm.user)
+                .success(function (user) {
+                    if (user!=null){
+                        vm.succ="Update Successful!!"
+                    }
+                })
 
         }
     }

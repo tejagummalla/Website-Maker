@@ -14,18 +14,28 @@
             vm.widgetUpdate=widgetUpdate;
 
             function init() {
-                vm.widget=WidgetService.findWidgetById(vm.widgetId);
-
+                WidgetService
+                    .findWidgetById(vm.widgetId)
+                    .success(function (widget) {
+                     vm.widget=widget;
+                })
             }
             init();
+
             function widgetDelete(){
-                WidgetService.deleteWidget(vm.widgetId);
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                WidgetService
+                    .deleteWidget(vm.widgetId)
+                    .success(function () {
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                    })
             }
 
             function widgetUpdate() {
-                WidgetService.updateWidget(vm.widget,vm.widgetId);
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                WidgetService
+                    .updateWidget(vm.widget,vm.widgetId)
+                    .success(function () {
+                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                    })
             }
 
 

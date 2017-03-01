@@ -11,7 +11,11 @@
         vm.getTrustedHtml=getTrustedHtml;
 
         function init() {
-            vm.widgets=WidgetService.findAllWidgets(vm.pageId);
+            WidgetService
+                .findAllWidgets(vm.pageId,vm.websiteId,vm.userId)
+                .success(function (widgets) {
+                vm.widgets = widgets;
+            })
         }
         init();
         function fetchYoutube(url) {

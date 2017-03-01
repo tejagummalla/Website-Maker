@@ -7,13 +7,23 @@
             vm.createUser=createUser;
             
             function createUser(user) {
-                if (user.password==user.cpassword){
-                    var id=LoginService.createUser(user);
-                    $location.url("user/"+id);
-                }
-                else{
-                    vm.error="Sorry Passwords Do not Match!"
-                }
+
+                LoginService
+                    .findUserByUsername(user.username)
+                    .success(function (user) {
+                        vm.message="This username is already taken!"
+                    })
+                    .error(function (err) {
+                        LoginService
+                            .createUser(user)
+                            .success(function (user) {
+                                $location.url('/user/'+user._id);
+                            })
+                            .error(function () {
+                                vm.error="sorry could not register!"
+                            })
+                    })
+
             }
         }
 })();
