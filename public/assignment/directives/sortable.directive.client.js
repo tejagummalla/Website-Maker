@@ -7,7 +7,7 @@
         function linkFunc(scope, element, attributes) {
             element.sortable({
                 axis:"y",
-                //handle: ".handle",
+                handle: ".handle",
                 cursor:"move"
             });
         }
