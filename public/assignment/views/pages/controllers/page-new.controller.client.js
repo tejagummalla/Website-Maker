@@ -14,7 +14,12 @@
         vm.createPage=createPage;
 
         function init() {
-            vm.pages=PageService.findPageByWebsiteId(vm.websiteId)
+            PageService
+                .findPageByWebsiteId(vm.websiteId,vm.userId)
+                .success(function (pages) {
+                    vm.pages=pages;
+                });
+
         }
         init();
 

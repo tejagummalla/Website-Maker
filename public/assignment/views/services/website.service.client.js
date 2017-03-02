@@ -35,8 +35,8 @@
             // return site
         }
         
-        function findWebsiteById(userId,websiteId) {
-            return $http.get("/api/user/"+userId+"/website/"+websiteId)
+        function findWebsiteById(websiteId) {
+            return $http.get("/api/website/"+websiteId)
         }
         
         function createWebsite(userId,website) {
@@ -46,8 +46,8 @@
             //     "description":website.description,"_id":id})
         }
 
-        function updateWebsite(websiteId,website,userId) {
-            return $http.put("/api/user/"+userId+"/website/"+websiteId,website);
+        function updateWebsite(websiteId,website) {
+            return $http.put("/api/website/"+websiteId,website);
             // for(var w in websites) {
             //     if(websites[w]._id === websiteId) {
             //         websites[w].name= website.name;
@@ -56,8 +56,8 @@
             // }
         }
         
-        function deleteWebsite(userId,websiteId) {
-            return $http.delete("/api/user/"+userId+"/website/"+websiteId)
+        function deleteWebsite(websiteId) {
+            return $http.delete("/api/website/"+websiteId)
             for(var w in websites) {
                 if(websites[w]._id === websiteId) {
                     websites.splice(w, 1);

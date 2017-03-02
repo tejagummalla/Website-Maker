@@ -1,9 +1,9 @@
 module.exports = function (app) {
 
     app.get("/api/user/:userId/website", findWebsiteByUserId);
-    app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
-    app.delete("/api/user/:userId/website/:websiteId", deleteWebsite);
-    app.put("/api/user/:userId/website/:websiteId", updateWebsite);
+    app.get("/api/website/:websiteId", findWebsiteById);
+    app.delete("/api/website/:websiteId", deleteWebsite);
+    app.put("/api/website/:websiteId", updateWebsite);
     app.post("/api/user/:userId/website/new", createWebsite);
 
     var websites=[

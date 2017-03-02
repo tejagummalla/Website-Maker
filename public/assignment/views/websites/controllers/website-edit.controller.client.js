@@ -18,7 +18,7 @@
                         vm.websites=web
                     })
                 WebsiteService
-                    .findWebsiteById(vm.userId,vm.websiteId)
+                    .findWebsiteById(vm.websiteId)
                     .success(function (website) {
                         vm.website=website;
                     })
@@ -28,7 +28,7 @@
 
             function deleteWebsite () {
                 WebsiteService
-                    .deleteWebsite(vm.userId,vm.websiteId)
+                    .deleteWebsite(vm.websiteId)
                     .success(function (wId) {
                         vm.message="Successfully deleted Website"+wId;
                         $location.url("/user/"+vm.userId+"/website");
@@ -39,7 +39,7 @@
 
             function updateWebsite() {
                 WebsiteService
-                    .updateWebsite(vm.websiteId,vm.website,vm.userId)
+                    .updateWebsite(vm.websiteId,vm.website)
                     .success(function () {
                         $location.url("/user/"+vm.userId+"/website");
                     })
