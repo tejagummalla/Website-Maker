@@ -32,7 +32,7 @@
         }
         
         function deletePage(pageId,websiteId,userId) {
-            return $http.delete("/api/page/"+pageId)
+            return $http.delete("/api/website/"+websiteId+"/page/"+pageId)
         }
     }
 })();

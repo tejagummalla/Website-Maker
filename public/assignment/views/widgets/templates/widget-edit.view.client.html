@@ -19,13 +19,17 @@
 </nav>
 
 <div class="container-fluid">
-        <div ng-switch="Model.widget.widgetType">
-            <div ng-switch-when="HEADER" class="ng-scope">
+        <div ng-switch="Model.widget.type">
+            <div ng-switch-when="HEADING" class="ng-scope">
                 <ng-include src="'views/widgets/templates/editors/widget-header-edit.view.client.html'"></ng-include>
             </div>
 
             <div ng-switch-when="IMAGE" class="ng-scope">
                 <ng-include src="'views/widgets/templates/editors/widget-image-edit.view.client.html'"></ng-include>
+            </div>
+
+            <div ng-switch-when="INPUT" class="ng-scope">
+                <ng-include src="'views/widgets/templates/editors/widget-input-edit.view.client.html'"></ng-include>
             </div>
 
             <div ng-switch-when="YOUTUBE">

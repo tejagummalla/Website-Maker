@@ -15,6 +15,7 @@
                 .findAllWidgets(vm.pageId,vm.websiteId,vm.userId)
                 .success(function (widgets) {
                 vm.widgets = widgets;
+                console.log(widgets)
             })
         }
         init();

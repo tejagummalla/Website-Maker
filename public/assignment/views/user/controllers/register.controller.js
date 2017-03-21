@@ -17,6 +17,7 @@
                         LoginService
                             .createUser(user)
                             .success(function (user) {
+                                console.log(user._id)
                                 $location.url('/user/'+user._id);
                             })
                             .error(function () {

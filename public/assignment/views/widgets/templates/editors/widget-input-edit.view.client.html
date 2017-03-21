@@ -1,0 +1,19 @@
+
+
+<div class="container-fluid">
+    <label for="input_text">Text</label>
+    <input ng-model="Model.widget.text" class="form-control" id="input_text"/>
+    <label for="input_rows">Rows</label>
+    <input ng-model="Model.widget.rows" class="form-control" type="number" id="input_rows"/>
+    <label for="input_place">Placeholder</label>
+    <input ng-model="Model.widget.placeholder" class="form-control" id="input_place"/>
+    <label for="input_form">Formatted</label>
+    <input ng-model="Model.widget.formatted" type="checkbox" id="input_form"/>
+
+    <a class="btn btn-danger btn-block topp"
+       ng-click="Model.widgetDelete()">Delete</a>
+
+    <a class="btn btn-success btn-block topp"
+       ng-click="Model.widgetUpdate()">Update</a>
+</div>
+

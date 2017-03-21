@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MusicApp">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+    <script src="app.js"></script>
+
+    <script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+    <div class="container-fluid" ng-controller="MusicController as model">
+        <h1>Music</h1>
+
+        <input ng-model="music.title" class="form-control" placeholder="title">
+        <button ng-click="model.createMusic(movie)" class="btn btn-block btn-primary">
+            Create Movie
+        </button>
+    </div>
+</body>
+</html>

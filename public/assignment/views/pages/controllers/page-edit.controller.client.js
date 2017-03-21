@@ -30,7 +30,7 @@
 
             function deletePage() {
                 PageService
-                    .deletePage(vm.pageId)
+                    .deletePage(vm.pageId,vm.websiteId)
                     .success(function () {
                         $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
                     })

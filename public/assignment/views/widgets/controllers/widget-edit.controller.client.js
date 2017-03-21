@@ -24,7 +24,7 @@
 
             function widgetDelete(){
                 WidgetService
-                    .deleteWidget(vm.widgetId)
+                    .deleteWidget(vm.widgetId,vm.pageId)
                     .success(function () {
                         $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
                     })

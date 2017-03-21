@@ -28,13 +28,17 @@
                 <span class="glyphicon glyphicon-align-justify handle" ></span>
             </div>
 
-            <div ng-switch="widget.widgetType">
-                <div ng-switch-when="HEADER" class="ng-scope">
+            <div ng-switch="widget.type">
+                <div ng-switch-when="HEADING" class="ng-scope">
                     <ng-include src="'views/widgets/templates/widget-heading.view.client.html'"></ng-include>
                 </div>
 
                 <div ng-switch-when="IMAGE" class="ng-scope">
                     <ng-include src="'views/widgets/templates/widget-image.view.client.html'"></ng-include>
+                </div>
+
+                <div ng-switch-when="INPUT" class="ng-scope">
+                    <ng-include src="'views/widgets/templates/widget-input.view.client.html'"></ng-include>
                 </div>
 
                 <div ng-switch-when="YOUTUBE">

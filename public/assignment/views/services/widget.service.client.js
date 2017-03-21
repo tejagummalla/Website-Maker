@@ -18,7 +18,7 @@
             }
 
             function createWidget(pageId,widget) {
-                return $http.post("/api/page/"+pageId+"/widget",{"widgetType":widget});
+                return $http.post("/api/page/"+pageId+"/widget",{"type":widget});
                 // var id = (new Date()).getTime();
                 // widgets.push({"_id":id.toString(), "widgetType":widget, "pageId":pageId})
                 // return id;
@@ -31,13 +31,9 @@
                 return null;
             }
 
-            function deleteWidget(widgetId) {
-                return $http.delete("/api/widget/"+widgetId);
-                for(var w in widgets){
-                    if(widgets[w]._id==widgetId){
-                        widgets.splice(w,1);
-                    }
-                }
+            function deleteWidget(widgetId,pageId) {
+                return $http.delete("/api/page/"+pageId+"/widget/"+widgetId);
+
             }
 
             function updateWidget(widget,widgetId) {

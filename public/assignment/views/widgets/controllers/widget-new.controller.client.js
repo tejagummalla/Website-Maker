@@ -14,6 +14,7 @@
                     WidgetService
                         .createWidget(vm.pageId,type)
                         .success(function (widget) {
+                            console.log(widget)
                             vm.widgetId=widget._id;
                             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+vm.widgetId)
                         });

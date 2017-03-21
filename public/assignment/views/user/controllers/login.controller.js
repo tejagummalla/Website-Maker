@@ -22,15 +22,16 @@
                     vm.error="Please Enter a Password"
                 }
                 else {
-                    var promise = LoginService.findByCredential(user.username ,user.password);
-                    promise.success(function (use) {
-                        if (use){
-                            $location.url("/user/"+use._id)
-                        }
-                        else {
-                            vm.error= "user not found!"
-                        }
-                    });
+                    LoginService
+                        .findByCredential(user.username ,user.password)
+                        .success(function (user) {
+                            if (user){
+                                $location.url("/user/"+user["0"]._id)
+                            }
+                            else {
+                                vm.error= "user not found!"
+                            }
+                        });
 
                 }
 

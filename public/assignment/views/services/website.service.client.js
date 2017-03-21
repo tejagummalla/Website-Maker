@@ -56,8 +56,8 @@
             // }
         }
         
-        function deleteWebsite(websiteId) {
-            return $http.delete("/api/website/"+websiteId)
+        function deleteWebsite(websiteId,userId) {
+            return $http.delete("/api/user/"+userId+"/website/"+websiteId)
             for(var w in websites) {
                 if(websites[w]._id === websiteId) {
                     websites.splice(w, 1);
