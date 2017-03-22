@@ -1,10 +1,19 @@
 <div class="container">
     <form>
+        <label for="html_text">Text</label>
+        <div id="html_text" ng-model="Model.widget.text"
+             text-angular
+             ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+
+            <!--<input type="text" id="html_text" class="form-control"-->
+                   <!--ng-model="Model.widget.text">-->
+        </div>
+
         <label for="html_name">Name</label>
         <input type="text" class="form-control" id="html_name" ng-model="Model.widget.name">
-        <label for="html_text">Text</label>
-        <input type="text" id="html_text" class="form-control"
-               ng-model="Model.widget.text">
+
 
     </form>
     <a class="btn btn-danger btn-block topp"

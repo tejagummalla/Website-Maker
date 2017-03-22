@@ -1,7 +1,19 @@
  .aligned {
    text-align: justify ;
 }
-
+ .youtube-widget {
+     position: relative;
+     padding-bottom: 56.25%; /* 16:9 */
+     height: 0;
+ }
+ .youtube-widget iframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 90%;
+     height: 90%;
+     z-index: -1;
+ }
 body{
     margin-top: 60px;
     margin-bottom: 50px;
