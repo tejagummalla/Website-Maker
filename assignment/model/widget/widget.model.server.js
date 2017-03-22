@@ -45,13 +45,41 @@
     function deleteWidget(widgetId) {
         var d = q.defer();
         WidgetModel
-            .remove({_id : widgetId},function (err,widget) {
+            .find({},function (err,widgets) {
                 if(err){
                     d.abort(err)
-                }else {
-                    d.resolve(widget)
+                }else{
+
+                    findWidgetById(widgetId)
+                        .then(function (widget) {
+                            var ord = widget.order;
+                            WidgetModel
+                                .remove({_id : widgetId},function (err,widget) {
+                                    if(err){
+                                        d.abort(err)
+                                    }else {
+                                        d.resolve(widget)
+                                    }
+                                });
+
+                            for(w in widgets){
+                                if (widgets[w].order > ord){
+                                    widgets[w].order-=1;
+                                    widgets[w].save();
+                                }
+                            }
+                        });
+                    d.resolve(widgets)
                 }
-            })
+            });
+        // WidgetModel
+        //     .remove({_id : widgetId},function (err,widget) {
+        //         if(err){
+        //             d.abort(err)
+        //         }else {
+        //             d.resolve(widget)
+        //         }
+        //     })
         return d.promise;
     }
     function updateWidget(widgetId,widget) {
