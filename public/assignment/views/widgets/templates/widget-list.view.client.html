@@ -20,7 +20,7 @@
 
 <div class="container-fluid">
     <div class="widget-list" wbdv-sortable="">
-        <div ng-repeat="widget in Model.widgets">
+        <div ng-repeat="widget in Model.widgets | orderBy: 'order'">
             <div class="jga-toolbar">
                 <a href="#/user/{{Model.userId}}/website/{{Model.websiteId}}/page/{{Model.pageId}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>

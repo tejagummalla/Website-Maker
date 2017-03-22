@@ -12,6 +12,7 @@
             this.deleteWidget=deleteWidget;
             this.updateWidget=updateWidget;
             this.createWidget=createWidget;
+            this.updateOrder=updateOrder;
 
             function findAllWidgets(pageId,websiteId,userId) {
                 return $http.get("/api/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
@@ -34,6 +35,10 @@
             function deleteWidget(widgetId,pageId) {
                 return $http.delete("/api/page/"+pageId+"/widget/"+widgetId);
 
+            }
+
+            function updateOrder(pageId, startIndex, endIndex) {
+                return $http.put("/page/" + pageId + "/widget?initial=" + startIndex + "&final=" + endIndex);
             }
 
             function updateWidget(widget,widgetId) {

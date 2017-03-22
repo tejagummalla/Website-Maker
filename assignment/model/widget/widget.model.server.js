@@ -13,22 +13,32 @@
         updateWidget : updateWidget,
         deleteWidget : deleteWidget,
         findWidgetById : findWidgetById,
-        deleteAllWidgets : deleteAllWidgets
-        //recorderWidget : recorderWidget
-    }
+        deleteAllWidgets : deleteAllWidgets,
+        reorderWidget : reorderWidget
+    };
 
     module.exports = api
 
-    function createWidget(widget){
+    function createWidget(widget,pageId){
         var d = q.defer();
         WidgetModel
-            .create(widget,function (err,widget) {
+            .find({"_page": {'$in':pageId}},
+            function (err,widgets) {
                 if(err){
-                    d.abort(err)
+
                 }else{
-                    d.resolve(widget)
+                    widget.order=widgets.length;
+                    WidgetModel
+                        .create(widget,function (err,widget) {
+                            if(err){
+                                d.abort(err)
+                            }else{
+                                d.resolve(widget)
+                            }
+                        })
                 }
             })
+
         return d.promise
     }
 
@@ -93,5 +103,40 @@
                     d.resolve(widget)
                 }
             })
+        return d.promise;
+    }
+
+    function reorderWidget(pageId,start,end) {
+        var d= q.defer();
+        WidgetModel
+            .find({_page:pageId},function (err,widgets) {
+                    if (err){
+                        d.abort(err)
+                    }else{
+                        widgets.forEach(function (widget) {
+                            if(start<end){
+                                if(widget.order == start){
+                                    widget.order = end;
+                                    widget.save();
+                                }
+                                else if(widget.order >start && widget.order <= end){
+                                    widget.order = widget.order -1;
+                                    widget.save();
+                                }
+                            } else{
+                                if(widget.order == start){
+                                    widget.order = end;
+                                    widget.save();
+                                }
+                                else if(widget.order < start && widget.order >= end){
+                                    widget.order = widget.order +1;
+                                    widget.save();
+                                }
+                            }
+                        });
+                        d.resolve(widgets)
+                    }
+
+            });
         return d.promise;
     }

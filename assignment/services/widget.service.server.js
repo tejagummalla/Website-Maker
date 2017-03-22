@@ -5,6 +5,8 @@ module.exports = function (app,WidgetModel,PageModel) {
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/page/:pageId/widget/:widgetId", deleteWidget);
     app.post("/api/page/:pageId/widget", createWidget);
+    app.put("/api/page/")
+    app.put("/page/:pageId/widget",updateOrder);
 
     var multer = require('multer'); // npm install multer --save
     var storage=multer.diskStorage({
@@ -65,14 +67,26 @@ module.exports = function (app,WidgetModel,PageModel) {
     //         "url": "https://youtu.be/AM2Ivdi9c4E" },
     //     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     // ];
+    function updateOrder(req,res) {
+        var pageId = req.params.pageId;
+        var start = parseInt(req.query.initial)
+        var end = parseInt(req.query.final)
 
+        WidgetModel
+            .reorderWidget(pageId,start,end)
+            .then(function (status) {
+                res.sendStatus(status)
+            },function (err) {
+                res.sendStatus(400)
+            });
+    }
     function createWidget(req,res) {
         var pageId=req.params.pageId;
         var widget;
         widget=  req.body;
         widget._page = pageId;
         WidgetModel
-            .createWidget(widget)
+            .createWidget(widget,pageId)
             .then(function (widget) {
                 var id = widget._id;
                 PageModel

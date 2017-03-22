@@ -14,6 +14,7 @@
         size : Number,
         class : String,
         icon : String,
+        order : Number,
         deletable : Boolean,
         formatted : Boolean,
         dateCreated : Date
