@@ -126,7 +126,6 @@ module.exports = function (app,WidgetModel,PageModel) {
     function deleteWidget(req,res) {
         var widgetId=req.params.widgetId;
         var pageId = req.params.pageId;
-        console.log(pageId)
         WidgetModel
             .deleteWidget(widgetId)
             .then(
@@ -135,9 +134,7 @@ module.exports = function (app,WidgetModel,PageModel) {
                         .findPageById(pageId)
                         .then(function (page) {
                             i = page.widgets.indexOf(widgetId)
-                            console.log(i)
                             page.widgets.splice(i,1)
-                            console.log(page.widgets)
                             PageModel
                                 .updatePage(pageId,page)
                                 .then(function (page) {

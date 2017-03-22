@@ -76,7 +76,6 @@ module.exports = function (app,PageModel,WebsiteModel,WidgetModel) {
             .createPage(page)
             .then(function (page) {
                 var id = page._id
-                console.log(id)
                 WebsiteModel
                     .addPage(websiteId,id)
                     .then(function (page) {

@@ -24,7 +24,6 @@ module.exports = function (app,WebsiteModel,UserModel,PageModel) {
         WebsiteModel
             .createWebsite(website)
             .then(function (website) {
-                console.log(website)
                 id=website._id
                 UserModel
                     .addWebsite(userId,id)
@@ -67,7 +66,6 @@ module.exports = function (app,WebsiteModel,UserModel,PageModel) {
                         .then(function (user) {
                             i = user.websites.indexOf(websiteId)
                             user.websites.splice(i,1)
-                            console.log(user.websites)
                             UserModel
                                 .updateUser(userId,user)
                                 .then(function (user) {

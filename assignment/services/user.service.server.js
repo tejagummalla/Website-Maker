@@ -70,7 +70,6 @@ module.exports = function (app,UserModel,WebsiteModel) {
                 UserModel
                     .deleteUser(userId)
                     .then(function (status) {
-                        console.log("User Deleted.")
                         res.sendStatus(200)
                     })
                 res.sendStatus(200)

@@ -97,7 +97,6 @@
 
     function deleteAllWidgets(pageId) {
         var d=q.defer();
-        console.log('hello')
         WidgetModel
             .remove({_page: {"$in":pageId}},function (err,status) {
                 if (err){
