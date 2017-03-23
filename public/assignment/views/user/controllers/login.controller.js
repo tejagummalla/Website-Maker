@@ -12,20 +12,20 @@
             vm.userId=$routeParams.uid;
 
             function login(user) {
-                if (user.username == null && user.password==null){
+                if (!user){
                     vm.error="Please Enter Username and Password!"
                 }
-                else if (user.username== null){
+                else if (!user.username){
                     vm.error="Please Enter a Username"
                 }
-                else if(user.password==null){
+                else if(!user.password){
                     vm.error="Please Enter a Password"
                 }
                 else {
                     LoginService
                         .findByCredential(user.username ,user.password)
                         .success(function (user) {
-                            if (user){
+                            if (user.length >0){
                                 $location.url("/user/"+user["0"]._id)
                             }
                             else {
