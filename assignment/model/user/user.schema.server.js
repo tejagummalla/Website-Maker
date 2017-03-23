@@ -10,7 +10,7 @@ var userSchema = mongoose.Schema({
     phone: String,
     //websites: [website],
     websites: [{type: mongoose.Schema.Types.ObjectId, ref:'WebsiteModule'}],
-    dateCreated: Date
+    dateCreated: {type: Date, default:Date.now()}
 },{collection: "user"});
 
 

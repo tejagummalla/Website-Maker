@@ -3,6 +3,8 @@ module.exports = function (app) {
     var WebsiteModel = require('./model/website/website.model.server')
     var PageModel = require('./model/page/page.model.server')
     var WidgetModel = require('./model/widget/widget.model.server')
+
+    var models = require("./model/models.server");
     // UserModel
     //     .findUserByUsername("tejagumma")
     //     .then(function (user) {

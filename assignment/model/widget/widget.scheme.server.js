@@ -17,7 +17,7 @@
         order : Number,
         deletable : Boolean,
         formatted : Boolean,
-        dateCreated : Date
+        dateCreated : {type: Date, default:Date.now()}
     },{collection : 'widget'});
 
     module.exports = WidgetSchema;
