@@ -13,7 +13,7 @@
                     WEBSITES
                 </a>
 
-                <a href="#/user/{{Model.userId}}/website/new" class="navbar-text pull-right">
+                <a href="#/user/website/new" class="navbar-text pull-right">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
 
@@ -28,7 +28,7 @@
                     <a href="#user/{{Model.userId}}/website/{{website._id}}/page">
                         {{website.name}}
                     </a>
-                    <a href="#user/{{Model.userId}}/website/{{website._id}}" class="pull-right">
+                    <a href="#user/website/{{website._id}}" class="pull-right">
                         <span class="glyphicon glyphicon-cog "></span>
                     </a>
                 </li>
@@ -39,7 +39,7 @@
         <div class="container-fluid bg-primary" >
             <div class="navbar-header" style="width: 100%">
                 <p class="navbar-text pull-right" style="margin-right: 3px">
-                    <a href="#user/{{Model.userId}}">
+                    <a href="#user">
                         <span class="glyphicon glyphicon-user" ></span>
                     </a>
                 </p>

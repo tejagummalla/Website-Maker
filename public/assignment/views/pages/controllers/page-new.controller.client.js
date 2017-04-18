@@ -24,11 +24,15 @@
         init();
 
         function createPage(page) {
-            PageService
-                .createPage(vm.websiteId,page)
-                .success(function () {
-                    $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
-            })
+            if(page.name){
+                console.log("k")
+                PageService
+                    .createPage(vm.websiteId,page)
+                    .success(function () {
+                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                    })
+            }
+
         }
     }
 })();

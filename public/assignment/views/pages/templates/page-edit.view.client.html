@@ -50,29 +50,42 @@
     <div class="col-xs-12 col-sm-8 wbdv-right-pane">
 
         <div class="container-fluid" >
-            <form>
+            <div ng-show="form2.$invalid && form2.$submitted" class="alert alert-danger">
+                Page name not entered!
+            </div>
+            <form name="form2" novalidate>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input class="form-control" id="name"
-                           ng-model="Model.page.name" placeholder="Page Name" type="text">
+                           name="pageName"
+                           ng-model="Model.page.name"
+                           required
+                           placeholder="Page Name" type="text">
+                    <div ng-show="form2.pageName.$invalid" class="error">
+                        Please enter a page name
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input class="form-control" id="title"
                            ng-model="Model.page.description" placeholder="Page Title" type="text">
-
                 </div>
-            </form>
-            <div class="topp">
-                <button class="btn-block btn btn-success"
-                        ng-click="Model.updatePage()">Update</button>
-            </div>
 
-            <div class="topp">
-                <button class="btn-block btn btn-danger"
-                        ng-click="Model.deletePage()">Delete</button>
-            </div>
+                <div class="topp">
+                    <button class="btn-block btn btn-success"
+                            type="submit"
+                            ng-click="Model.updatePage()">Update</button>
+                </div>
+
+                <div class="topp">
+                    <button class="btn-block btn btn-danger"
+                            type="submit"
+                            ng-click="Model.deletePage()">Delete</button>
+                </div>
+
+            </form>
+
 
 
         </div>
@@ -82,7 +95,7 @@
 
 <nav class="navbar navbar-fixed-bottom bg-primary">
     <div class="container-fluid">
-        <a href="#user/{{Model.userId}}" class="navbar-link">
+        <a href="#user" class="navbar-link">
             <span class="glyphicon glyphicon-user pull-right navbar-brand"></span>
         </a>
     </div>

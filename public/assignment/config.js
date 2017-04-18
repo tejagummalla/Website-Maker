@@ -17,22 +17,31 @@
                 controllerAs: 'Model'
 
             })
-            .when('/user/:uid',{
+
+            // .when('/user',{
+            //     templateUrl : 'views/user/templates/profile.view.client.html',
+            //     controller : 'ProfileController',
+            //     controllerAs: 'ProfileModel',
+            //     resolve: {loggedin: checkLoggedin}
+            // })
+
+            .when('/user',{
                 templateUrl:'views/user/templates/profile.view.client.html',
                 controller: 'ProfileController',
-                controllerAs: 'ProfileModel'
+                controllerAs: 'ProfileModel',
+                resolve: {checkLoggedin: checkLoggedin}
             })
-            .when('/user/:uid/website',{
+            .when('/user/website',{
                 templateUrl:'views/websites/templates/website-list.view.client.html',
                 controller: 'WebsiteController',
                 controllerAs:'Model'
             })
-            .when('/user/:uid/website/new',{
+            .when('/user/website/new',{
                 templateUrl: 'views/websites/templates/website-new.view.client.html',
                 controller: 'WebsiteNewController',
                 controllerAs:'Model'
             })
-            .when('/user/:uid/website/:wid',{
+            .when('/user/website/:wid',{
                 templateUrl: 'views/websites/templates/website-edit.view.client.html',
                 controller: 'WebsiteEditController',
                 controllerAs: 'Model'
@@ -73,8 +82,27 @@
                 templateUrl:'views/widgets/templates/editors/widget-flickr-search.view.client.html',
                 controller:'FlickrImageSearchController',
                 controllerAs: 'model'
+            })
+
+            .otherwise({templateUrl : "views/user/templates/login.view.client.html"});
+
+        function checkLoggedin($q, $timeout, LoginService, $location, $rootScope) {
+            var deferred = $q.defer();
+            LoginService
+                .checkLogin()
+                .success(function(user) {
+                    $rootScope.errorMessage = null;
+                    if (user != '0') {
+                        $rootScope.currentUser = user;
+                        deferred.resolve(user);
+                    } else {
+                        deferred.reject();
+                        $location.url('/login');
+                    }
             });
-
-
+            return deferred.promise;
+        };
     }
+
+
 })();

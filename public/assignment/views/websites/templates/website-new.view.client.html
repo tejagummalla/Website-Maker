@@ -4,7 +4,7 @@
     <div class="row container-fluid bg-primary">
         <div class="col-sm-4 hidden-xs">
             <div class="navbar-text pull-left">
-                <a href="#/user/{{Model.userId}}/website">
+                <a href="#/user/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -12,14 +12,14 @@
                 <a class="navbar-brand">WEBSITES</a>
             </div>
             <div class="navbar-text pull-right">
-                <a href="#/user/{{Model.userId}}/website/new">
+                <a href="#/user/website/new">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
         </div>
         <div class="col-sm-8">
             <div class="navbar-text pull-left visible-xs">
-                <a href="#/user/{{Model.userId}}/website">
+                <a href="#/user/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -42,7 +42,7 @@
                 <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
                     {{website.name}}
                 </a>
-                <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
+                <a href="#/user/website/{{website._id}}" class="pull-right">
                     <span class="glyphicon glyphicon-cog "></span>
                 </a>
             </li>
@@ -50,29 +50,41 @@
     </div>
 
     <div class="col-xs-12 col-sm-8 wbdv-right-pane">
+        <div ng-show="form3.$invalid && form3.$submitted" class="alert alert-danger">
+            Website name not entered!
+        </div>
 
+        <form name="form3" novalidate>
             <label for="name">Website Name</label>
             <input ng-model="website.name"
-                   class="form-control input-lg" id="name" placeholder="Website Name">
+                   name="webName"
+                   required
+                   class="form-control input-lg"
+                   id="name" placeholder="Website Name">
+            <div ng-show="form3.webName.$invalid" class="error">
+                Please enter a websie name.
+            </div>
 
             <label for="description">Website Description</label>
             <textarea ng-model="website.description"
                       class="form-control input-lg"
                       id="description" rows="4" placeholder="Description"></textarea>
 
-        <div>
-            <a class="btn btn-block btn-success topp"
-                    ng-click="Model.createWebsite(website)">
-                Create
-            </a>
-        </div>
+            <div>
+                <button type="submit" class="btn btn-block btn-success topp"
+                   ng-click="Model.createWebsite(website)">
+                    Create
+                </button>
+            </div>
+        </form>
+
     </div>
 </div>
 
 
 <nav class="navbar navbar-fixed-bottom bg-primary">
     <div class="container-fluid">
-        <a href="#user/{{Model.userId}}" class="navbar-link">
+        <a href="#user" class="navbar-link">
             <span class="glyphicon glyphicon-user pull-right navbar-brand"></span>
         </a>
     </div>

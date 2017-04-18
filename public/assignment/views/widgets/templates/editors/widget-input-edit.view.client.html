@@ -1,19 +1,41 @@
 
 
 <div class="container-fluid">
-    <label for="input_text">Text</label>
-    <input ng-model="Model.widget.text" class="form-control" id="input_text"/>
-    <label for="input_rows">Rows</label>
-    <input ng-model="Model.widget.rows" class="form-control" type="number" id="input_rows"/>
-    <label for="input_place">Placeholder</label>
-    <input ng-model="Model.widget.placeholder" class="form-control" id="input_place"/>
-    <label for="input_form">Formatted</label>
-    <input ng-model="Model.widget.formatted" type="checkbox" id="input_form"/>
 
-    <a class="btn btn-danger btn-block topp"
-       ng-click="Model.widgetDelete()">Delete</a>
+    <div ng-show="form1.$invalid && form1.$submitted" class="alert alert-danger">
+        Input text not entered!
+    </div>
 
-    <a class="btn btn-success btn-block topp"
-       ng-click="Model.widgetUpdate()">Update</a>
+    <form name="form1" novalidate>
+        <label for="input_text">Text</label>
+        <input ng-model="Model.widget.text"
+               class="form-control"
+               name="inp"
+               required
+               id="input_text"/>
+
+        <label for="name_inp">Name</label>
+        <input ng-model="Model.widget.name"
+                class="form-control"
+            name="name"
+        required
+        id="name_inp"/>
+        <div class="error" ng-show="form1.name.$invalid">
+            Please enter the input text
+        </div>
+        <label for="input_rows">Rows</label>
+        <input ng-model="Model.widget.rows" class="form-control" type="number" id="input_rows"/>
+        <label for="input_place">Placeholder</label>
+        <input ng-model="Model.widget.placeholder" class="form-control" id="input_place"/>
+        <label for="input_form">Formatted</label>
+        <input ng-model="Model.widget.formatted" type="checkbox" id="input_form"/>
+
+        <button class="btn btn-danger btn-block topp"
+           ng-click="Model.widgetDelete()">Delete</button>
+
+        <button class="btn btn-success btn-block topp"
+           ng-click="Model.widgetUpdate()">Update</button>
+    </form>
+
 </div>
 

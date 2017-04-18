@@ -50,27 +50,41 @@
 
     <div class="col-xs-12 col-sm-8 wbdv-right-pane">
 
+        <div ng-show="form1.$invalid && form1.$submitted" class="alert alert-danger">
+            Page name not entered!
+        </div>
+
         <div class="container-fluid">
-            <form>
+            <form name="form1" novalidate>
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input  ng-model="page.name"
-                            class="form-control" id="name" placeholder="Page Name" type="text">
+                            class="form-control"
+                            name="pageName"
+                            required
+                            id="name"
+                            placeholder="Page Name" type="text">
+                    <div class="error" ng-show="form1.pageName.$invalid">
+                        Please enter a page name.
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input  ng-model="page.description"
                             class="form-control" id="title" placeholder="Page Title" type="text">
+                </div>
 
+                <div class="topp">
+                    <button class="btn btn-success btn-block"
+                            type="submit"
+                            ng-click="Model.createPage(page)">
+                        Create
+                    </button>
                 </div>
             </form>
 
-            <div class="topp">
-                <a class="btn btn-success btn-block" ng-click="Model.createPage(page)">
-                    Create
-                </a>
-            </div>
+
 
         </div>
     </div>
@@ -79,7 +93,7 @@
 
 <nav class="navbar navbar-fixed-bottom bg-primary">
     <div class="container-fluid">
-        <a href="#user/{{Model.userId}}" class="navbar-link">
+        <a href="#user" class="navbar-link">
             <span class="glyphicon glyphicon-user pull-right navbar-brand"></span>
         </a>
     </div>

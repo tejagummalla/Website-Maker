@@ -21,15 +21,34 @@
             "createUser": createUser,
             "findUserByUsername": findUserByUsername,
             "deleteUser":deleteUser,
-            "updateUser":updateUser
+            "updateUser":updateUser,
+            "logout" : logout,
+            "register" : register,
+            "checkLogin" : checkLogin
         };
         return api;
+        
+        
+        function logout() {
+            return $http.post("/api/logout")
+        }
+        
+        function register(user) {
+            return $http.post("/api/register",user)
+        }
+        
+        function checkLogin() {
+            return $http.post("/api/checkLogin");
+        }
 
         function findById(userId) {
-            return $http.get("/api/user/"+userId)
+            return $http.get("/api/user/123")
         }
-        function findByCredential(username,password) {
-           return $http.get("/api/user?username="+username+"&password="+password)
+        
+        
+        function findByCredential(user) {
+            return $http.post('/api/login',user)
+           //return $http.get("/api/user?username="+username+"&password="+password)
         }
         function findUserByUsername(username) {
             return $http.get("/api/user?username="+username);

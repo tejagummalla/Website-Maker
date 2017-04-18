@@ -14,7 +14,9 @@ var api={
     findUserByCredential : findUserByCredential,
     updateUser : updateUser,
     deleteUser: deleteUser,
-    addWebsite : addWebsite
+    addWebsite : addWebsite,
+    findUserByGoogleId: findUserByGoogleId,
+    findUserByFacebookId: findUserByFacebookId
 }
 
 
@@ -24,15 +26,25 @@ var api={
 module.exports=api;
 
 
+    function findUserByGoogleId(googleId) {
+        return userModel.findOne({'google.id' : googleId})
+    }
+    
+    function findUserByFacebookId(facebookId) {
+        return userModel.findOne({'facebook.id': facebookId})
+    }
+    
+    
     function setmodel(_model) {
         model = _model
     }
     function createUser(user) {
         var d = q.defer();
+        console.log(user)
         userModel
             .create(user, function (err,user) {
                 if (err){
-                    d.abort(err)
+                    d.reject(err)
                 } else{
                     d.resolve(user)
                 }
@@ -100,9 +112,8 @@ module.exports=api;
     }
     function findUserByUsername(username) {
         var d = q.defer();
-
         userModel
-            .find({
+            .findOne({
                 username: username
             }, function (err, user) {
                 if (err){
@@ -117,7 +128,7 @@ module.exports=api;
     function findUserByCredential(username,password) {
         var d= q.defer();
         userModel
-            .find({
+            .findOne({
                 password: password,
                 username: username
             },function (err,user) {

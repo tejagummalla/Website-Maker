@@ -2,10 +2,11 @@
     angular
         .module("WebAppMaker")
         .controller("WebsiteEditController",WebsiteEditController)
-        function WebsiteEditController($routeParams,WebsiteService,$location) {
+        function WebsiteEditController($routeParams,WebsiteService,$location,$rootScope) {
 
             var vm=this
-            vm.userId=$routeParams.uid
+            vm.user = $rootScope.currentUser;
+            vm.userId= vm.user._id;
             vm.websiteId = $routeParams.wid;
             vm.deleteWebsite = deleteWebsite;
             vm.updateWebsite = updateWebsite;
@@ -27,22 +28,31 @@
             init();
 
             function deleteWebsite () {
-                WebsiteService
-                    .deleteWebsite(vm.websiteId,vm.userId)
-                    .success(function (wId) {
-                        vm.message="Successfully deleted Website"+wId;
-                        $location.url("/user/"+vm.userId+"/website");
+                if(!vm.website || !vm.website.name){
 
-                    })
+                }
+                else{
+                    WebsiteService
+                        .deleteWebsite(vm.websiteId,vm.userId)
+                        .success(function (wId) {
+                            vm.message="Successfully deleted Website"+wId;
+                            $location.url("/user/website");
 
+                        })
+                }
             };
 
             function updateWebsite() {
-                WebsiteService
-                    .updateWebsite(vm.websiteId,vm.website)
-                    .success(function () {
-                        $location.url("/user/"+vm.userId+"/website");
-                    })
+                if(!vm.website || !vm.website.name){
+
+                }else{
+                    WebsiteService
+                        .updateWebsite(vm.websiteId,vm.website)
+                        .success(function () {
+                            $location.url("/user/website");
+                        })
+                }
+
             };
         }
 })();

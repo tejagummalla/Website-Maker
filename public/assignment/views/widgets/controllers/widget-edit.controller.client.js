@@ -23,19 +23,25 @@
             init();
 
             function widgetDelete(){
-                WidgetService
-                    .deleteWidget(vm.widgetId,vm.pageId)
-                    .success(function () {
-                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
-                    })
+                console.log(vm.widget.name)
+                if(vm.widget.name){
+                    WidgetService
+                        .deleteWidget(vm.widgetId,vm.pageId)
+                        .success(function () {
+                            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                        })
+                }
+
             }
 
             function widgetUpdate() {
-                WidgetService
-                    .updateWidget(vm.widget,vm.widgetId)
-                    .success(function () {
-                        $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
-                    })
+                if(vm.widget && vm.widget.name){
+                    WidgetService
+                        .updateWidget(vm.widget,vm.widgetId)
+                        .success(function () {
+                            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                        })
+                }
             }
 
 

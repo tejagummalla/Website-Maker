@@ -4,9 +4,11 @@
         .module("WebAppMaker")
         .controller("WebsiteNewController",websiteNewController)
 
-    function websiteNewController(WebsiteService,$routeParams,$location) {
+    function websiteNewController(WebsiteService,$routeParams,$location,$rootScope) {
         var vm=this;
-        vm.userId=$routeParams.uid;
+        vm.user = $rootScope.currentUser;
+        vm.userId= vm.user._id;
+        console.log(vm.userId)
         vm.createWebsite=createWebsite;
         WebsiteService
             .findWebsiteByUser(vm.userId)
@@ -15,12 +17,17 @@
             });
 
         function createWebsite(website) {
+            console.log(website)
+            if(!website || !website.name){
 
-            WebsiteService
-                .createWebsite(vm.userId,website)
-                .success(function () {
-                    $location.url("/user/"+vm.userId+"/website");
-                })
+            }else{
+                WebsiteService
+                    .createWebsite(vm.userId,website)
+                    .success(function () {
+                        $location.url("/user/website");
+                    })
+            }
+
 
         }
 

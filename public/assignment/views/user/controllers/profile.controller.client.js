@@ -3,7 +3,7 @@
     angular
         .module("WebAppMaker")
         .controller("ProfileController",profileController)
-    function profileController($routeParams,LoginService,$location) {
+    function profileController($routeParams,LoginService,$location,$rootScope) {
         var vm=this;
         vm.userId= $routeParams['uid'];
         var promise= LoginService.findById(vm.userId);
@@ -12,6 +12,18 @@
         })
         vm.deleteUser=deleteUser;
         vm.updateUser=updateUser;
+        vm.logout = logout;
+        
+        function logout() {
+            LoginService
+                .logout()
+                .success(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
 
         function deleteUser() {
             var answer= confirm("Are you sure?");

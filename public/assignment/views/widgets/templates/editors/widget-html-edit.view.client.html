@@ -1,5 +1,10 @@
 <div class="container">
-    <form>
+
+    <div ng-show="form1.$invalid && form1.$submitted" class="alert alert-danger">
+        Widget name not entered!
+    </div>
+
+    <form name="form1" novalidate>
         <label for="html_text">Text</label>
         <div id="html_text" ng-model="Model.widget.text"
              text-angular
@@ -12,14 +17,25 @@
         </div>
 
         <label for="html_name">Name</label>
-        <input type="text" class="form-control" id="html_name" ng-model="Model.widget.name">
+        <input type="text" class="form-control"
+               name="widName"
+               required
+               id="html_name" ng-model="Model.widget.name">
 
+        <div ng-show="form1.widName.$invalid" class="error">
+            Please enter the widget name.
+        </div>
+
+
+        <button class="btn btn-danger btn-block topp"
+                type="submit"
+           ng-click="Model.widgetDelete()">Delete</button>
+
+        <button class="btn btn-success btn-block topp"
+                type="submit"
+           ng-click="Model.widgetUpdate()">Update</button>
 
     </form>
-    <a class="btn btn-danger btn-block topp"
-       ng-click="Model.widgetDelete()">Delete</a>
 
-    <a class="btn btn-success btn-block topp"
-       ng-click="Model.widgetUpdate()">Update</a>
 
 </div>

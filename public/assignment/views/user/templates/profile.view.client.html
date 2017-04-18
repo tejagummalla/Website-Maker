@@ -50,7 +50,7 @@
         </form>
 
 
-        <a href="#/user/{{ProfileModel.user._id}}/website" class="btn btn-success btn-block">
+        <a href="#/user/website" class="btn btn-success btn-block">
             Websites
         </a>
         <a class="btn btn-primary btn-block topp" ng-click="ProfileModel.updateUser()">
@@ -58,7 +58,7 @@
         </a>
 
         <button class="btn btn-warning btn-block"
-        onclick="window.location.href='#login'">Logout</button>
+        ng-click="ProfileModel.logout()">Logout</button>
 
         <button class="btn btn-danger btn-block"
         ng-click="ProfileModel.deleteUser()">UnRegister</button>

@@ -1,35 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta charset="UTF-8">
     <title>Web Dev Course Home Page</title>
     <style>
-        body{
+        .parallax {
+            /* The image used */
+            background-image: url("Mean.jpg");
+
+            /* Set a specific height */
+            min-height: 500px;
+
+            /* Create the parallax scrolling effect */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
         }
+
+        body{
+            margin: 0;
+        }
+
+        .button{
+            margin: 0px;
+        }
+        .fa{
+            color: darkblue;
+            padding: 5px;
+        }
     </style>
+
 </head>
-<body background="Background.jpg">
-    <h1>Web Dev Course Home Page</h1>
+<body>
+<div class="parallax">
+    <div style="width:100%;">
+        <img src="self.jpg" class="img-circle " width="100" height="100"
+             style="margin-left: 45%; margin-right: auto">
 
-    <p>
-        Home Page of Eswara Sai Surya Teja Gummalla.
-    </p>
+        <div style="background-color: lightskyblue">
+            <h3 style="color: #245;margin-left: 33%">Home Page Of Eswara Sai Surya Teja Gummalla</h3>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html#/login">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/Teja-Gummalla/gummalla-eswarasaisuryateja-webdev">Your public repository at GitHub.com</a>
-        </li>
-    </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<div style="height:1000px;background-color: lightskyblue;font-size:36px">
+    <div class="row">
+        <div class="col-md-4 container text-center">
+            <a href="assignment/index.html#/login" class="btn btn-success" >ASSIGNMENT</a>
+
+            <a href="assignment/index.html#/login">
+                <img src="Mean.png" class="img-responsive img-rounded" alt="mean" height="500">
+            </a>
+
+        </div>
+
+        <div class="col-md-4 text-center">
+            <a class="btn btn-success" href="https://speak-app.herokuapp.com/">PROJECT</a>
+
+            <a href="https://speak-app.herokuapp.com/">
+                <img src="speak-app.PNG" class="img-responsive img-rounded" alt="mean" height="500">
+            </a>
+        </div>
+
+        <div class="col-md-4 text-center">
+            <a class="btn btn-success "
+               href="https://github.com/Teja-Gummalla/gummalla-eswarasaisuryateja-webdev">GITHUB</a>
+
+            <a href="https://github.com/Teja-Gummalla/gummalla-eswarasaisuryateja-webdev">
+                <img href src="github.png" class="img-responsive img-rounded" alt="mean" height="500">
+            </a>
+        </div>
+    </div>
+</div>
+
+<i class="fa fa-facebook-official"></i>
+
+
+<nav class="navbar navbar-fixed-bottom bg-primary">
+    <div class="container-fluid text-center">
+        <a href="https://www.facebook.com/teja.gummalla" class="navbar-link">
+            <i class="fa fa-facebook-square " style="font-size: 36px" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/teja-gummalla-14175bb1/" class="navbar-link">
+            <i class="fa fa-linkedin-square " style="font-size: 36px" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://twitter.com/tjblaine7" class="navbar-link">
+            <i class="fa fa-twitter " style="font-size: 36px" aria-hidden="true"></i>
+        </a>
+    </div>
+</nav>
+
 </body>
 </html>

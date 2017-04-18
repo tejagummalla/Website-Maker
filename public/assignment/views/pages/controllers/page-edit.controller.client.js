@@ -29,19 +29,25 @@
             init();
 
             function deletePage() {
-                PageService
-                    .deletePage(vm.pageId,vm.websiteId)
-                    .success(function () {
-                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
-                    })
+                if(vm.page && vm.page.name){
+
+                    PageService
+                        .deletePage(vm.pageId,vm.websiteId)
+                        .success(function () {
+                            $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                        })
+                }
             }
             
             function updatePage() {
-                PageService
-                    .updatePage(vm.pageId,vm.page)
-                    .success(function () {
-                        $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
-                    })
+                if(vm.page && vm.page.name){
+                    PageService
+                        .updatePage(vm.pageId,vm.page)
+                        .success(function () {
+                            $location.url("user/"+vm.userId+"/website/"+vm.websiteId+"/page")
+                        })
+                }
+
             }
         }
 })();
