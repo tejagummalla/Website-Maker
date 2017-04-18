@@ -2,9 +2,11 @@
     angular
         .module("WebAppMaker")
         .controller("WidgetController",WidgetController)
-    function WidgetController(WidgetService,$routeParams,$sce,$location) {
+    function WidgetController(WidgetService,$routeParams,$sce,$location,$rootScope) {
         var vm=this;
-        vm.userId=$routeParams.uid;
+
+        vm.user = $rootScope.currentUser;
+        vm.userId= vm.user._id;
         vm.websiteId=$routeParams.wid;
         vm.pageId=$routeParams.pid;
         vm.fetchYoutube= fetchYoutube;

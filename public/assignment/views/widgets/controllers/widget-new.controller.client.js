@@ -3,9 +3,10 @@
         .module("WebAppMaker")
         .controller("WidgetNewController",WidgetNewController)
 
-        function WidgetNewController($routeParams,WidgetService,$location) {
+        function WidgetNewController($routeParams,WidgetService,$location,$rootScope) {
             var vm=this;
-            vm.userId=$routeParams.uid;
+            vm.user = $rootScope.currentUser;
+            vm.userId= vm.user._id;
             vm.websiteId=$routeParams.wid;
             vm.pageId=$routeParams.pid;
             vm.createWidget=createWidget;

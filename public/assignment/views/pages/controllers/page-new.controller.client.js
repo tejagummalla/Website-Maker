@@ -7,9 +7,10 @@
         .module("WebAppMaker")
         .controller("PageNewController",PageNewController)
 
-    function PageNewController(PageService,$routeParams,$location) {
+    function PageNewController(PageService,$routeParams,$location,$rootScope) {
         var vm=this
-        vm.userId=$routeParams.uid;
+        vm.user = $rootScope.currentUser;
+        vm.userId= vm.user._id;
         vm.websiteId=$routeParams.wid;
         vm.createPage=createPage;
 

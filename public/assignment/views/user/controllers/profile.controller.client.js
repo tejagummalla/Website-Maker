@@ -5,7 +5,8 @@
         .controller("ProfileController",profileController)
     function profileController($routeParams,LoginService,$location,$rootScope) {
         var vm=this;
-        vm.userId= $routeParams['uid'];
+        vm.user = $rootScope.currentUser;
+        vm.userId= vm.user._id;
         var promise= LoginService.findById(vm.userId);
         promise.success(function (user) {
             vm.user=user
@@ -38,6 +39,7 @@
         }
 
         function updateUser() {
+            console.log(vm.userId)
             LoginService
                 .updateUser(vm.userId,vm.user)
                 .success(function (user) {

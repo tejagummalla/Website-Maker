@@ -241,13 +241,25 @@ module.exports = function (app,UserModel,WebsiteModel) {
     }
     function findUserById(req,res) {
         var userId= req.user._id;
-        UserModel
-            .findUserById(userId)
-            .then(function (user) {
-                res.json(user)
-            },function (err) {
-                res.send(err)
-            })
+        if(!req.user._id){
+            UserModel
+                .findUserByFacebookId(req.user.facebook.id)
+                .then(function (user) {
+                    res.json(user)
+                },function (err) {
+                    res.send(err)
+                })
+        }
+        else{
+            UserModel
+                .findUserById(userId)
+                .then(function (user) {
+                    res.json(user)
+                },function (err) {
+                    res.send(err)
+                })
+        }
+
     }
 
     function findUser(req,res) {

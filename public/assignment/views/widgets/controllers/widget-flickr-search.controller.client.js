@@ -3,9 +3,10 @@
         .module("WebAppMaker")
         .controller("FlickrImageSearchController",FlickrImageSearchController)
 
-    function FlickrImageSearchController(FlickrService,WidgetService,$routeParams,$location){
+    function FlickrImageSearchController(FlickrService,WidgetService,$routeParams,$location,$rootScope){
         var vm=this
-        vm.userId=$routeParams.uid;
+        vm.user = $rootScope.currentUser;
+        vm.userId= vm.user._id;
         vm.websiteId=$routeParams.wid;
         vm.pageId=$routeParams.pid;
         vm.widgetId=$routeParams.wgid;

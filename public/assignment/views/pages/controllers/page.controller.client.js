@@ -5,10 +5,11 @@
     angular
         .module("WebAppMaker")
         .controller("PageController",PageController)
-        function PageController(PageService,$routeParams) {
+        function PageController(PageService,$routeParams,$rootScope) {
 
             var vm=this
-            vm.userId=$routeParams.uid;
+            vm.user = $rootScope.currentUser;
+            vm.userId= vm.user._id;
             vm.websiteId=$routeParams.wid;
 
             function init(){

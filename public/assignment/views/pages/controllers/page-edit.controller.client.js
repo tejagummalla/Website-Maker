@@ -6,9 +6,10 @@
         .module("WebAppMaker")
         .controller("PageEditController",PageEditController)
 
-        function PageEditController(PageService,$routeParams,$location) {
+        function PageEditController(PageService,$routeParams,$location,$rootScope) {
             var vm=this
-            vm.userId=$routeParams.uid;
+            vm.user = $rootScope.currentUser;
+            vm.userId= vm.user._id;
             vm.pageId=$routeParams.pid;
             vm.websiteId=$routeParams.wid;
             vm.deletePage=deletePage;
